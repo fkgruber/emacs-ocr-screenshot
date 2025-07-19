@@ -35,7 +35,7 @@ Once submitted and accepted to MELPA:
 
 1. Clone this repository:
    #+begin_src shell
-   git clone https://github.com/fkgruber/emacs-ocr-screenshot
+   git clone https://github.com/fkgruber/org-ocr-drawer
    #+end_src
 
 #+RESULTS:
