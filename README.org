@@ -35,8 +35,10 @@ Once submitted and accepted to MELPA:
 
 1. Clone this repository:
    #+begin_src shell
-   git clone https://github.com/yourusername/org-ocr-drawer
+   git clone https://github.com/fkgruber/emacs-ocr-screenshot
    #+end_src
+
+#+RESULTS:
 
 2. Add the directory to your load-path:
    #+begin_src emacs-lisp
