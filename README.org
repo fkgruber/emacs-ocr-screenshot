@@ -1,0 +1,77 @@
+#+TITLE: org-ocr-drawer
+#+AUTHOR: Your Name
+#+OPTIONS: toc:nil num:nil
+
+* org-ocr-drawer 🧠📸
+An Emacs minor feature that automatically inserts OCR (text recognition) output under images inserted via [[https://github.com/abo-abo/org-download][org-download]], using Tesseract OCR. The OCR text is stored in a folded =:ocr:= drawer directly below the image link, making it searchable but unobtrusive.
+
+Personally, I use this when taking org-roam notes so that screenshots are searchable.
+
+* Features
+- 🖼️ Automatically runs Tesseract OCR on images inserted via `org-download-clipboard`
+- 📦 Inserts OCR text in an Org =:ocr:= drawer
+- 🔍 OCR text is indexed by isearch and other Org search tools
+- 🧹 The drawer is folded automatically to keep your buffer clean
+
+* Requirements
+- Emacs 27.1+
+- [[https://github.com/abo-abo/org-download][org-download]] package
+- Tesseract OCR installed and available on your PATH
+
+* Installation
+
+** From MELPA (when available)
+
+Once submitted and accepted to MELPA:
+
+#+begin_src emacs-lisp
+  (use-package org-ocr-drawer
+    :ensure t
+    :config
+    (org-ocr-drawer-enable))
+#+end_src
+
+** Manual
+
+1. Clone this repository:
+   #+begin_src shell
+   git clone https://github.com/yourusername/org-ocr-drawer
+   #+end_src
+
+2. Add the directory to your load-path:
+   #+begin_src emacs-lisp
+   (add-to-list 'load-path "/path/to/org-ocr-drawer")
+   (require 'org-ocr-drawer)
+   (org-ocr-drawer-enable)
+   #+end_src
+
+* Usage
+
+1. Ensure Tesseract is installed (e.g. =brew install tesseract= on macOS).
+2. In an Org buffer, run =M-x org-download-clipboard= to paste an image.
+3. A drawer like this will be inserted:
+
+   #+begin_example
+   [[file:screenshot.png]]
+
+   :ocr:
+   Recognized text from the image...
+   :end:
+   #+end_example
+
+4. The =:ocr:= drawer will be folded automatically.
+
+* Customization
+
+You can disable the OCR feature at any time with:
+
+#+begin_src emacs-lisp
+  (org-ocr-drawer-disable)
+#+end_src
+
+* License
+This project is licensed under the MIT License.
+
+* Author
+Fred Gruber
+email {at} fredgruber {dot} org
